@@ -1,0 +1,52 @@
+unit uDm;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
+  Data.DB, FireDAC.Comp.Client, FireDAC.Phys.SQLite, FireDAC.Phys.SQLiteDef,
+  FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat;
+
+type
+  TDMConexao = class(TDataModule)
+    FDConexao: TFDConnection;
+  private
+    procedure CarregarConfiguracoes;
+    const C_ArquivoConfiguracao = 'config.cfg';
+  public
+    { Public declarations }
+  end;
+
+var
+  DMConexao: TDMConexao;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+{ TDMConexao }
+
+procedure TDMConexao.CarregarConfiguracoes;
+var
+  mListaParametros: TStringList;
+begin
+  FDConexao.Params.Clear
+
+  if not FileExistS(C_ArquivoConfiguracao) then
+    raise Exception.Create('Favor ajustar o arquivo de configuração');
+
+  mListaParametros := TStringList.Create;
+
+
+  try
+
+  finally
+
+  end;
+end;
+
+end.

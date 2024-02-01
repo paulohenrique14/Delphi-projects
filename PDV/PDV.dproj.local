@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/01/31 20:42:38.000.993,=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Unit1.pas</Transaction>
+    <Transaction>2024/01/31 20:44:01.000.198,C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Unit1.pas=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\uPrincipal.pas</Transaction>
+    <Transaction>2024/01/31 20:44:01.000.198,C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Unit1.dfm=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\uPrincipal.dfm</Transaction>
+    <Transaction>2024/01/31 20:44:25.000.390,C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\uPrincipal.dfm=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\uPrincipal.dfm</Transaction>
+    <Transaction>2024/01/31 20:44:25.000.390,C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\uPrincipal.pas=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\uPrincipal.pas</Transaction>
+    <Transaction>2024/01/31 20:53:49.000.912,C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Project1.dproj=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\PDV.dproj</Transaction>
+    <Transaction>2024/01/31 20:53:56.000.040,C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\PDV.dproj=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\PDV.dproj</Transaction>
+    <Transaction>2024/01/31 20:57:17.000.404,=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\Unit1.pas</Transaction>
+    <Transaction>2024/01/31 20:57:44.000.798,C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\Unit1.pas=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\uPadrao.pas</Transaction>
+    <Transaction>2024/01/31 20:57:44.000.798,C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\Unit1.dfm=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\uPadrao.dfm</Transaction>
+    <Transaction>2024/01/31 20:57:50.000.984,C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\uPadrao.dfm=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\pas\uPadrao.dfm</Transaction>
+    <Transaction>2024/01/31 20:57:50.000.984,C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\uPadrao.pas=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\pas\uPadrao.pas</Transaction>
+    <Transaction>2024/01/31 21:59:05.687,=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\Unit1.pas</Transaction>
+    <Transaction>2024/01/31 21:59:40.449,C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\dcu\uDm.pas=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\Unit1.pas</Transaction>
+    <Transaction>2024/01/31 21:59:40.449,C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\dcu\uDm.dfm=C:\Users\TMJDA\OneDrive\Área de Trabalho\MasterView\Development\Delphi\Delphi-projects\PDV\Unit1.dfm</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="dcu"/>
+    <File Path="dcu\uPadrao.pas"/>
+    <File Path="dcu\uPadrao.dfm"/>
+    <File Path="dcu\uDm.pas"/>
+    <File Path="dcu\uDm.dfm"/>
+    <File Path="uPrincipal.pas"/>
+    <File Path="uPrincipal.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>
