@@ -13,6 +13,7 @@ object FrmPrincipal: TFrmPrincipal
   Font.Style = []
   Menu = MainMenu1
   WindowState = wsMaximized
+  OnCreate = FormCreate
   TextHeight = 15
   object PnlPrincipal: TPanel
     Left = 0
@@ -21,10 +22,6 @@ object FrmPrincipal: TFrmPrincipal
     Height = 441
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 392
-    ExplicitTop = 232
-    ExplicitWidth = 185
-    ExplicitHeight = 41
   end
   object MainMenu1: TMainMenu
     Left = 120

@@ -14,6 +14,7 @@ type
     Consultas1: TMenuItem;
     PnlPrincipal: TPanel;
     procedure Cadastros2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,15 +28,27 @@ implementation
 
 {$R *.dfm}
 
-uses uPadrao, Data.DB;
+uses uPadrao, Data.DB, uCadPessoa, uSplash;
 
 procedure TFrmPrincipal.Cadastros2Click(Sender: TObject);
 begin
-  FrmPadrao := TFrmPadrao.Create(Self);
+  FrmCadPessoa := TFrmCadPessoa.Create(Self);
   try
-    FrmPadrao.ShowModal;
+    FrmCadPessoa.ShowModal;
   finally
-    FreeAndNil(FrmPadrao);
+    FreeAndNil(FrmCadPessoa);
+  end;
+end;
+
+procedure TFrmPrincipal.FormCreate(Sender: TObject);
+begin
+  FrmSplash := TFrmSplash.Create(Self);
+  try
+    FrmSplash.ShowModal;
+
+  finally
+    FrmSplash.Free;
+
   end;
 end;
 

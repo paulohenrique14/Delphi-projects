@@ -5,7 +5,11 @@ object DMConexao: TDMConexao
   Width = 640
   object FDConexao: TFDConnection
     Params.Strings = (
-      'DriverID=ASA')
+      
+        'Database=C:\Users\TMJDA\OneDrive\'#193'rea de Trabalho\MasterView\Dev' +
+        'elopment\Delphi\Delphi-projects\PDV\db\dados.db'
+      'LockingMode=Normal'
+      'DriverID=SQLite')
     LoginPrompt = False
     Left = 320
     Top = 208
