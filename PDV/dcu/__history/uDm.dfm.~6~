@@ -1,0 +1,18 @@
+object DMConexao: TDMConexao
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  Height = 480
+  Width = 640
+  object Conexao: TSQLConnection
+    ConnectionName = 'SQLITECONNECTION'
+    DriverName = 'Sqlite'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=Sqlite'
+      
+        'Database=C:\Users\TMJDA\OneDrive\'#193'rea de Trabalho\MasterView\Dev' +
+        'elopment\Delphi\Delphi-projects\PDV\db\dados.db')
+    Left = 96
+    Top = 64
+  end
+end

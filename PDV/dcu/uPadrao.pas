@@ -9,7 +9,8 @@ uses
   System.ImageList, Vcl.ImgList, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, Vcl.Imaging.pngimage;
+  FireDAC.Comp.Client, Vcl.Imaging.pngimage, Datasnap.DBClient,
+  Datasnap.Provider, Data.FMTBcd, Data.SqlExpr;
 
 type
   TFrmPadrao = class(TForm)
@@ -26,12 +27,12 @@ type
     BtnEditar: TButton;
     BtnApagar: TButton;
     LblTituloForm: TLabel;
-    FDCadastro: TFDQuery;
     DSCadastro: TDataSource;
     PnlResizeTela: TPanel;
     BtnResize: TImage;
     BtnFechar: TImage;
     BtnNoResize: TImage;
+    FDCadastro: TFDQuery;
     procedure BtnAdicionarClick(Sender: TObject);
     procedure DSCadastroStateChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -101,8 +102,7 @@ end;
 
 procedure TFrmPadrao.FormShow(Sender: TObject);
 begin
-  CPCardPanel.ActiveCard := CardPesquisa;
-  FDCadastro.Active      := True;
+  CPCardPanel.ActiveCard  := CardPesquisa;
 end;
 
 procedure TFrmPadrao.BtnNoResizeClick(Sender: TObject);

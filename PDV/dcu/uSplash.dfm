@@ -11,6 +11,8 @@ object FrmSplash: TFrmSplash
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
+  RoundedCorners = rcOff
   TextHeight = 15
   object PnlPrincipal: TPanel
     Left = 0
@@ -19,10 +21,6 @@ object FrmSplash: TFrmSplash
     Height = 480
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 240
-    ExplicitTop = 256
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object PnlEsquerdo: TPanel
       Left = 1
       Top = 1
@@ -33,7 +31,6 @@ object FrmSplash: TFrmSplash
       Color = clMediumslateblue
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 0
     end
     object PnlDireito: TPanel
       Left = 272
@@ -48,7 +45,7 @@ object FrmSplash: TFrmSplash
       object Label1: TLabel
         Left = 40
         Top = 40
-        Width = 281
+        Width = 273
         Height = 65
         Alignment = taCenter
         Caption = 'SmartPDV'
@@ -62,7 +59,7 @@ object FrmSplash: TFrmSplash
       object Label2: TLabel
         Left = 40
         Top = 111
-        Width = 281
+        Width = 197
         Height = 21
         Alignment = taCenter
         Caption = 'Sistema de gest'#227'o para lojas'
@@ -73,52 +70,40 @@ object FrmSplash: TFrmSplash
         Font.Style = []
         ParentFont = False
       end
-      object Panel1: TPanel
+      object LblStatus: TLabel
         Left = 40
-        Top = 336
-        Width = 281
-        Height = 57
-        BevelOuter = bvNone
-        Color = clMediumslateblue
-        ParentBackground = False
-        TabOrder = 0
-        StyleName = 'Windows'
-        object BtnEntrar: TSpeedButton
-          Left = 0
-          Top = 0
-          Width = 281
-          Height = 57
-          Align = alClient
-          Caption = ' Entrar '
-          Flat = True
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindow
-          Font.Height = -27
-          Font.Name = 'Verdana'
-          Font.Style = []
-          Layout = blGlyphTop
-          ParentFont = False
-          StyleName = 'Windows'
-          ExplicitLeft = 1
-          ExplicitWidth = 305
-          ExplicitHeight = 81
-        end
+        Top = 405
+        Width = 99
+        Height = 15
+        Caption = 'Iniciando o servi'#231'o'
       end
       object PBSplash: TProgressBar
         Left = 40
-        Top = 304
+        Top = 425
         Width = 281
         Height = 17
-        Position = 50
+        Smooth = True
         BarColor = clMediumslateblue
         BackgroundColor = clMediumslateblue
-        Step = 100
+        Step = 1
+        TabOrder = 0
+        StyleName = 'Windows'
+      end
+      object LblGithub: TLinkLabel
+        Left = 40
+        Top = 448
+        Width = 281
+        Height = 19
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Github do desenvolvedor'
         TabOrder = 1
       end
     end
   end
   object Timer: TTimer
-    Interval = 50
+    Interval = 1
+    OnTimer = TimerTimer
     Left = 320
     Top = 193
   end

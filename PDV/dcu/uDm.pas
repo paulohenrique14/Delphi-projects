@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
   Data.DB, FireDAC.Comp.Client, FireDAC.Phys.SQLite, FireDAC.Phys.SQLiteDef,
   FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.Phys.ASA,
-  FireDAC.Phys.ASADef;
+  FireDAC.Phys.ASADef, Data.DbxSqlite, Data.SqlExpr;
 
 type
   TDMConexao = class(TDataModule)

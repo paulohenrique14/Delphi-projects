@@ -1,0 +1,29 @@
+inherited FrmPadrao1: TFrmPadrao1
+  Caption = 'FrmCadProduto'
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited PnlPrincipal: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+    inherited PnlNavegacao: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+      inherited LblTituloForm: TLabel
+        StyleElements = [seFont, seClient, seBorder]
+      end
+      inherited PnlResizeTela: TPanel
+        StyleElements = [seFont, seClient, seBorder]
+      end
+    end
+    inherited PnlBotoes: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+    inherited CPCardPanel: TCardPanel
+      StyleElements = [seFont, seClient, seBorder]
+      inherited CardCadastro: TCard
+        StyleElements = [seFont, seClient, seBorder]
+      end
+      inherited CardPesquisa: TCard
+        StyleElements = [seFont, seClient, seBorder]
+      end
+    end
+  end
+end

@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids,
   Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Mask,
-  Vcl.DBCtrls;
+  Vcl.DBCtrls, Datasnap.Provider, Datasnap.DBClient, Data.SqlExpr, Data.FMTBcd;
 
 type
   TFrmCadPessoa = class(TFrmPadrao)
@@ -29,8 +29,10 @@ type
     CBTipo: TComboBox;
     EdtCodigo: TEdit;
     procedure FormCreate(Sender: TObject);
-    procedure FDCadastroAfterInsert(DataSet: TDataSet);
     procedure BtnSalvarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FDCadastroAfterInsert(DataSet: TDataSet);
+    procedure BtnEditarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,6 +49,14 @@ uses
 
 {$R *.dfm}
 
+procedure TFrmCadPessoa.BtnEditarClick(Sender: TObject);
+begin
+  inherited;
+
+  MEDataNascimento.Text := DateToStr(FDCadastro.FieldByName('PES_DNC').AsDateTime);
+  EdtDataCadastro.Text  := DateToStr(FDCadastro.FieldByName('PES_DTC').AsDateTime);
+end;
+
 procedure TFrmCadPessoa.BtnSalvarClick(Sender: TObject);
 begin
   case CBTipo.ItemIndex of
@@ -54,38 +64,50 @@ begin
     1 : FDCadastro.FieldByName('PES_TIP').AsInteger := 2;
   end;
 
+  FDCadastro.FieldByName('PES_DNC').AsDateTime := StrToDate(MEDataNascimento.Text);
+  FDCadastro.FieldByName('PES_DTC').AsDateTime := StrToDate(EdtDataCadastro.Text);
+
   inherited;
+
+  MEDataNascimento.Text := '';
 
 end;
 
+
 procedure TFrmCadPessoa.FDCadastroAfterInsert(DataSet: TDataSet);
 var
-  FDCodigo: TFDQuery;
+  QryCodigo: TFDQuery;
 begin
-  FDCodigo := TFDQuery.Create(NIL);
+  QryCodigo := TFDQuery.Create(NIL);
   try
-    FDCodigo.Connection := DMConexao.FDConexao;
-    FDCodigo.SQL.Text   := 'Select Max(PES_COD) as CODIGO from pessoa';
-    FDCodigo.Open;
+    QryCodigo.Connection := DMConexao.FDConexao;
+    QryCodigo.SQL.Text   := 'Select coalesce(Max(PES_COD), 0) as CODIGO from pessoa';
+    QryCodigo.Open;
 
-    EdtCodigo.Text := (FDCodigo.FieldByName('CODIGO').AsInteger + 1).ToString;
+    EdtCodigo.Text := (QryCodigo.FieldByName('CODIGO').AsInteger + 1).ToString;
 
-    FDCOdigo.Close;
+    QryCodigo.Close;
   finally
-    FreeAndNil(FDCodigo);
+    FreeAndNil(QryCodigo);
   end;
-
-  EdtDataCadastro.Text := FormatDateTime('dd/mm/yyyy', now());
 
   FDCadastro.FieldByName('PES_COD').AsInteger := StrToInt(EdtCodigo.Text);
 
+  EdtDataCadastro.Text := FormatDateTime('dd/mm/yyyy', now());
 end;
 
 procedure TFrmCadPessoa.FormCreate(Sender: TObject);
 begin
   LblTituloForm.Caption := 'Cadastro de pessoa';
 
-  FDCadastro.SQL.Text := 'Select * from PESSOA';
+  FDCadastro.SQL.Text := 'SELECT * FROM PESSOA';
+  FDCadastro.Active   := True;
+end;
+
+procedure TFrmCadPessoa.FormShow(Sender: TObject);
+begin
+  inherited;
+  FDCadastro.Open;
 end;
 
 end.

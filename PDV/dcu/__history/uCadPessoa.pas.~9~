@@ -1,0 +1,111 @@
+unit uCadPessoa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uPadrao, Data.DB, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids,
+  Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Mask,
+  Vcl.DBCtrls, Datasnap.Provider, Datasnap.DBClient, Data.SqlExpr, Data.FMTBcd;
+
+type
+  TFrmCadPessoa = class(TFrmPadrao)
+    DBNome: TDBEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    DBEApelido: TDBEdit;
+    DBEEndereco: TDBEdit;
+    MEDataNascimento: TMaskEdit;
+    EdtDataCadastro: TEdit;
+    CBTipo: TComboBox;
+    EdtCodigo: TEdit;
+    CDSCadastroPES_COD: TIntegerField;
+    CDSCadastroPES_RAZ: TStringField;
+    CDSCadastroPES_APE: TStringField;
+    CDSCadastroPES_DTC: TDateField;
+    CDSCadastroPES_DNC: TDateField;
+    CDSCadastroPES_END: TStringField;
+    CDSCadastroPES_TIP: TIntegerField;
+    procedure FormCreate(Sender: TObject);
+    procedure BtnSalvarClick(Sender: TObject);
+    procedure CDSCadastroAfterInsert(DataSet: TDataSet);
+    procedure BtnAdicionarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadPessoa: TFrmCadPessoa;
+
+implementation
+
+uses
+  uDm;
+
+{$R *.dfm}
+
+procedure TFrmCadPessoa.BtnAdicionarClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFrmCadPessoa.BtnSalvarClick(Sender: TObject);
+begin
+  case CBTipo.ItemIndex of
+    0 : CDSCadastro.FieldByName('PES_TIP').AsInteger := 1;
+    1 : CDSCadastro.FieldByName('PES_TIP').AsInteger := 2;
+  end;
+
+end;
+
+procedure TFrmCadPessoa.CDSCadastroAfterInsert(DataSet: TDataSet);
+var
+  QryCodigo: TSQLDataSet;
+begin
+  QryCodigo := TSQLDataSet.Create(NIL);
+  try
+    QryCodigo.SQLConnection := DMConexao.Conexao;
+    QryCodigo.CommandText   := 'Select Max(PES_COD) as CODIGO from pessoa';
+    QryCodigo.Open;
+
+    EdtCodigo.Text := (QryCodigo.FieldByName('CODIGO').AsInteger + 1).ToString;
+
+    QryCodigo.Close;
+  finally
+    FreeAndNil(QryCodigo);
+  end;
+
+  CDSCadastro.FieldByName('PES_COD').AsInteger := StrToInt(EdtCodigo.Text);
+
+  EdtDataCadastro.Text := FormatDateTime('dd/mm/yyyy', now());
+
+
+end;
+
+procedure TFrmCadPessoa.FormCreate(Sender: TObject);
+begin
+  LblTituloForm.Caption := 'Cadastro de pessoa';
+
+  SQLCadastro.CommandText := 'Select * from PESSOA';
+//  SQLCadastro.Open;
+end;
+
+procedure TFrmCadPessoa.FormShow(Sender: TObject);
+begin
+  inherited;
+  CDSCadastro.Open;
+end;
+
+end.

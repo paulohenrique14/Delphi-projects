@@ -31,7 +31,6 @@ object FrmPadrao: TFrmPadrao
       Color = clMediumslateblue
       ParentBackground = False
       TabOrder = 0
-      ExplicitTop = -4
       object LblTituloForm: TLabel
         Left = 17
         Top = 10
@@ -59,7 +58,6 @@ object FrmPadrao: TFrmPadrao
         Padding.Bottom = 13
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = -3
         object BtnResize: TImage
           AlignWithMargins = True
           Left = 125
@@ -1496,7 +1494,6 @@ object FrmPadrao: TFrmPadrao
         ImageIndex = 0
         ParentFont = False
         TabOrder = 0
-        StyleName = 'Windows'
         OnClick = BtnAdicionarClick
       end
       object BtnCancelar: TButton
@@ -1515,7 +1512,6 @@ object FrmPadrao: TFrmPadrao
         ImageIndex = 1
         ParentFont = False
         TabOrder = 1
-        StyleName = 'Windows'
         OnClick = BtnCancelarClick
       end
       object BtnSalvar: TButton
@@ -1534,7 +1530,6 @@ object FrmPadrao: TFrmPadrao
         ImageIndex = 4
         ParentFont = False
         TabOrder = 2
-        StyleName = 'Windows'
         OnClick = BtnSalvarClick
       end
       object BtnEditar: TButton
@@ -1553,7 +1548,6 @@ object FrmPadrao: TFrmPadrao
         ImageIndex = 2
         ParentFont = False
         TabOrder = 3
-        StyleName = 'Windows'
         OnClick = BtnEditarClick
       end
       object BtnApagar: TButton
@@ -1572,7 +1566,6 @@ object FrmPadrao: TFrmPadrao
         ImageIndex = 3
         ParentFont = False
         TabOrder = 4
-        StyleName = 'Windows'
         OnClick = BtnApagarClick
       end
     end
@@ -1591,8 +1584,6 @@ object FrmPadrao: TFrmPadrao
         Height = 542
         CardIndex = 0
         TabOrder = 0
-        ExplicitLeft = 0
-        ExplicitTop = 5
       end
       object CardPesquisa: TCard
         Left = 1
@@ -1619,17 +1610,16 @@ object FrmPadrao: TFrmPadrao
       end
     end
   end
+  object DSCadastro: TDataSource
+    OnStateChange = DSCadastroStateChange
+    Left = 776
+    Top = 200
+  end
   object FDCadastro: TFDQuery
     Connection = DMConexao.FDConexao
     SQL.Strings = (
       '')
-    Left = 298
-    Top = 205
-  end
-  object DSCadastro: TDataSource
-    DataSet = FDCadastro
-    OnStateChange = DSCadastroStateChange
-    Left = 440
-    Top = 184
+    Left = 218
+    Top = 213
   end
 end

@@ -33,7 +33,7 @@ inherited FrmCadPessoa: TFrmCadPessoa
         StyleElements = [seFont, seClient, seBorder]
         object Label1: TLabel
           Left = 9
-          Top = 10
+          Top = 9
           Width = 39
           Height = 15
           Caption = 'C'#243'digo'
@@ -158,15 +158,16 @@ inherited FrmCadPessoa: TFrmCadPessoa
       end
     end
   end
+  inherited DSCadastro: TDataSource
+    DataSet = FDCadastro
+    Left = 592
+    Top = 368
+  end
   inherited FDCadastro: TFDQuery
     AfterInsert = FDCadastroAfterInsert
     SQL.Strings = (
-      'select * from PESSOA')
-    Left = 370
-    Top = 373
-  end
-  inherited DSCadastro: TDataSource
-    Left = 592
-    Top = 376
+      'select * from pessoa')
+    Left = 434
+    Top = 357
   end
 end

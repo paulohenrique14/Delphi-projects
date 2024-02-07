@@ -1,0 +1,223 @@
+inherited FrmCadPessoa: TFrmCadPessoa
+  Caption = 'FrmCadPessoa'
+  StyleElements = [seFont, seClient, seBorder]
+  OnCreate = FormCreate
+  TextHeight = 15
+  object Label3: TLabel [0]
+    Left = 9
+    Top = 162
+    Width = 33
+    Height = 15
+    Caption = 'Nome'
+  end
+  inherited PnlPrincipal: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+    inherited PnlNavegacao: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+      inherited LblTituloForm: TLabel
+        Width = 261
+        Caption = 'Cadastro de pessoa'
+        StyleElements = [seFont, seClient, seBorder]
+        ExplicitWidth = 261
+      end
+      inherited PnlResizeTela: TPanel
+        StyleElements = [seFont, seClient, seBorder]
+      end
+    end
+    inherited PnlBotoes: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+    inherited CPCardPanel: TCardPanel
+      ActiveCard = CardPesquisa
+      StyleElements = [seFont, seClient, seBorder]
+      inherited CardCadastro: TCard
+        StyleElements = [seFont, seClient, seBorder]
+        object Label1: TLabel
+          Left = 9
+          Top = 10
+          Width = 39
+          Height = 15
+          Caption = 'C'#243'digo'
+        end
+        object Label2: TLabel
+          Left = 9
+          Top = 66
+          Width = 33
+          Height = 15
+          Caption = 'Nome'
+        end
+        object Label4: TLabel
+          Left = 9
+          Top = 123
+          Width = 41
+          Height = 15
+          Caption = 'Apelido'
+        end
+        object Label5: TLabel
+          Left = 9
+          Top = 183
+          Width = 49
+          Height = 15
+          Caption = 'Endere'#231'o'
+        end
+        object Label6: TLabel
+          Left = 931
+          Top = 123
+          Width = 105
+          Height = 15
+          Anchors = [akTop, akRight]
+          Caption = 'Data de nascimento'
+        end
+        object Label7: TLabel
+          Left = 948
+          Top = 183
+          Width = 88
+          Height = 15
+          Anchors = [akTop, akRight]
+          Caption = 'Data de cadastro'
+        end
+        object Label8: TLabel
+          Left = 1013
+          Top = 10
+          Width = 23
+          Height = 15
+          Anchors = [akTop, akRight]
+          Caption = 'Tipo'
+        end
+        object DBNome: TDBEdit
+          Left = 9
+          Top = 82
+          Width = 1027
+          Height = 23
+          DataField = 'PES_RAZ'
+          DataSource = DSCadastro
+          TabOrder = 0
+        end
+        object DBEApelido: TDBEdit
+          Left = 9
+          Top = 141
+          Width = 830
+          Height = 23
+          DataField = 'PES_APE'
+          DataSource = DSCadastro
+          TabOrder = 1
+        end
+        object DBEEndereco: TDBEdit
+          Left = 9
+          Top = 202
+          Width = 830
+          Height = 23
+          DataField = 'PES_END'
+          DataSource = DSCadastro
+          TabOrder = 2
+        end
+        object MEDataNascimento: TMaskEdit
+          Left = 920
+          Top = 141
+          Width = 115
+          Height = 23
+          Anchors = [akTop, akRight]
+          EditMask = '!99/99/0000;1;_'
+          MaxLength = 10
+          TabOrder = 3
+          Text = '  /  /    '
+        end
+        object EdtDataCadastro: TEdit
+          Left = 920
+          Top = 202
+          Width = 116
+          Height = 23
+          Anchors = [akTop, akRight]
+          Enabled = False
+          TabOrder = 4
+        end
+        object CBTipo: TComboBox
+          Left = 920
+          Top = 27
+          Width = 116
+          Height = 23
+          Anchors = [akTop, akRight]
+          ImeName = 'Portuguese (Brazilian ABNT)'
+          ItemIndex = 0
+          TabOrder = 5
+          Text = 'Cliente'
+          Items.Strings = (
+            'Cliente'
+            'Fornecedor')
+        end
+        object EdtCodigo: TEdit
+          Left = 9
+          Top = 27
+          Width = 121
+          Height = 23
+          Enabled = False
+          TabOrder = 6
+        end
+      end
+      inherited CardPesquisa: TCard
+        StyleElements = [seFont, seClient, seBorder]
+      end
+    end
+  end
+  inherited FDCadastro: TFDQuery
+    Active = True
+    SQL.Strings = (
+      'select * from PESSOA')
+    Left = 162
+    Top = 325
+  end
+  inherited DSCadastro: TDataSource
+    Left = 592
+    Top = 368
+  end
+  inherited CDSCadastro: TClientDataSet
+    Active = True
+    Left = 458
+    Top = 341
+    object CDSCadastroPES_COD: TIntegerField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'PES_COD'
+      Origin = 'PES_COD'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object CDSCadastroPES_RAZ: TStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'PES_RAZ'
+      Origin = 'PES_RAZ'
+      Required = True
+      Size = 50
+    end
+    object CDSCadastroPES_APE: TStringField
+      DisplayLabel = 'Apelido'
+      FieldName = 'PES_APE'
+      Origin = 'PES_APE'
+      Size = 30
+    end
+    object CDSCadastroPES_DTC: TDateField
+      DisplayLabel = 'Data de cadastro'
+      FieldName = 'PES_DTC'
+      Origin = 'PES_DTC'
+    end
+    object CDSCadastroPES_DNC: TDateField
+      DisplayLabel = 'Data de nasc.'
+      FieldName = 'PES_DNC'
+      Origin = 'PES_DNC'
+    end
+    object CDSCadastroPES_END: TStringField
+      DisplayLabel = 'Endere'#231'o'
+      FieldName = 'PES_END'
+      Origin = 'PES_END'
+      Size = 100
+    end
+    object CDSCadastroPES_TIP: TIntegerField
+      DisplayLabel = 'Tipo'
+      FieldName = 'PES_TIP'
+      Origin = 'PES_TIP'
+    end
+  end
+  inherited DSPcadastro: TDataSetProvider
+    Left = 330
+    Top = 341
+  end
+end
